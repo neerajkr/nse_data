@@ -1,11 +1,11 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 import string
 import json
 import csv
 from bs4 import BeautifulSoup
 import requests
 
-url = 'https://www.nseindia.com/live_market/dynaContent/live_watch/option_chain/optionKeys.jsp?segmentLink=17&instrument=OPTIDX&symbol=NIFTY&date=27SEP2018'
+url = 'https://www.nseindia.com/live_market/dynaContent/live_watch/option_chain/optionKeys.jsp?segmentLink=17&instrument=OPTIDX&symbol=BANKNIFTY&date=6NOV2018'
 
 headers = {"User-agent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.80 Safari/537.36"}
 
@@ -30,6 +30,6 @@ for row in rows:
     data.append([ele for ele in cols if ele])
 
 import csv
-with open("nse_options_chain.csv", "wb") as f:
+with open("nse_options_chain.csv", "w") as f:
     writer = csv.writer(f)
     writer.writerows(data)
